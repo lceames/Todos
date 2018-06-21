@@ -1,0 +1,29 @@
+<div id="app">
+    <h1>Todo App</h1>
+    <div id="sections">
+        <div id="todo-form">
+            <h2>Create a New Todo</h2>
+            <input type="text" id="todo-text" />
+            <button id="create-todo">Create Todo</button>
+        </div>
+        <div>
+            <h2>Current Todos</h2>
+            <ul id="current-todos">  
+                <% @todos.each do |todo| %>
+                <li id=<%= todo.id%> status="<%= todo.todo_status.status_text%>">
+                    <%= todo.todo_text %>
+                    <select class="todo-status" id=<%= todo.id%>>
+                        <% @todo_statuses.each do |status| %>
+                            <option id=<%= status.id%>>
+                                <%= status.status_text %>
+                            </option>
+                        <% end %>
+                    </select>
+                    <i class="fas fa-times"></i>
+                </li>
+            <% end %>
+            </ul>
+        <div>
+    </div>
+</div>
+
